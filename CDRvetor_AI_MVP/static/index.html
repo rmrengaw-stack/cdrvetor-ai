@@ -183,8 +183,8 @@
         });
 
         if (!response.ok) {
-          const err = await response.json();
-          throw new Error(err.detail || "Erro ao processar.");
+          const texto = await response.text();
+          throw new Error(texto || "Erro ao processar.");
         }
 
         const blob = await response.blob();
